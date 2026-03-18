@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   "https://znynaiztfgjcprmyehpt.supabase.co",
-  "YOUR_KEY_HERE"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpueW5haXp0ZmdqY3BybXllaHB0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjEzNDEsImV4cCI6MjA4OTQzNzM0MX0.f0Vqr4Nh7_cvAU1xyW2n3kqeUPBiNjyWqCSuI-zhX0o"
 );
 
 function QRCode({ value, size = 160, color = "#1a1a1a" }) {
