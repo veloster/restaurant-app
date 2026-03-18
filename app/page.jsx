@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  "https://znynaiztfgjcprmyehpt.supabase.co",
+  "YOUR_KEY_HERE"
 );
 
 function QRCode({ value, size = 160, color = "#1a1a1a" }) {
