@@ -5,7 +5,7 @@ import { supabase } from "../../lib/supabase";
 
 export default function DashboardPage() {
   const { user } = useUser();
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState<any[]>([]);
 
   useEffect(() => {
     if (!user) return;
