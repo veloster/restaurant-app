@@ -82,7 +82,7 @@ export default function YartaLanding() {
       {/* Nav */}
       <nav className="nav">
         <div className="nav-inner">
-          <div className="nav-logo">YARTA</div>
+          <div className="nav-logo">LOYTI</div>
           <div className="nav-links">
             <span className="nav-link">How it works</span>
             <span className="nav-link">Features</span>
@@ -99,7 +99,7 @@ export default function YartaLanding() {
           Turn every scan into<br/><em>a loyal customer</em>
         </h1>
         <p className="hero-sub">
-          YARTA lets restaurants collect customer data through QR codes, then use it to run targeted campaigns, SMS offers, and birthday rewards — all from one dashboard.
+          LOYTI lets restaurants collect customer data through QR codes, then use it to run targeted campaigns, SMS offers, and birthday rewards — all from one dashboard.
         </p>
         {!submitted ? (
           <>
@@ -141,7 +141,7 @@ export default function YartaLanding() {
         <div className="how-grid">
           {[
             ["01", "Create an offer", "Set your discount, expiry date, and brand color. Takes 60 seconds."],
-            ["02", "Generate a QR code", "YARTA creates a unique QR code for each offer automatically."],
+            ["02", "Generate a QR code", "LOYTI creates a unique QR code for each offer automatically."],
             ["03", "Customer scans", "They fill in name, phone, email, and date of birth to claim the offer."],
             ["04", "Data is yours", "Every customer is saved to your dashboard. Export, email, SMS anytime."],
           ].map(([num, title, text]) => (
@@ -260,8 +260,8 @@ export default function YartaLanding() {
 
       {/* Footer */}
       <footer className="footer">
-        <div className="footer-logo">YARTA</div>
-        <div className="footer-text">© 2026 YARTA. All rights reserved.</div>
+        <div className="footer-logo">LOYTI</div>
+        <div className="footer-text">© 2026 LOYTI. All rights reserved.</div>
       </footer>
     </div>
   );

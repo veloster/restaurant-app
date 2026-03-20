@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex min-h-screen">
       <aside className="w-56 bg-black text-white flex flex-col p-6 gap-2">
-        <h1 className="text-xl font-bold mb-6">YARTA</h1>
+        <h1 className="text-xl font-bold mb-6">LOYTI</h1>
         {links.map(l => (
           <Link key={l.href} href={l.href} className={`px-3 py-2 rounded-lg text-sm font-medium transition ${pathname === l.href ? "bg-white text-black" : "hover:bg-white/10"}`}>
             {l.label}
