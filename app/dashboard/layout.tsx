@@ -10,6 +10,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     { href: "/dashboard/customers", label: "👥 Clients" },
     { href: "/dashboard/offers", label: "🎁 Offres" },
     { href: "/dashboard/qrcode", label: "📱 QR Code" },
+    { href: "/dashboard/analytics", label: "📊 Analytics" },
   ];
 
   return (
