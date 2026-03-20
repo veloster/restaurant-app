@@ -11,6 +11,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     { href: "/dashboard/offers", label: "🎁 Offres" },
     { href: "/dashboard/qrcode", label: "📱 QR Code" },
     { href: "/dashboard/analytics", label: "📊 Analytics" },
+    { href: "/dashboard/settings", label: "⚙️ Paramètres" }
   ];
 
   return (
