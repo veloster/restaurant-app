@@ -2,13 +2,24 @@
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
+import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
   const { user } = useUser();
+  const router = useRouter();
   const [customers, setCustomers] = useState<any[]>([]);
 
   useEffect(() => {
     if (!user) return;
+    supabase
+      .from("restaurants")
+      .select("*")
+      .eq("user_id", user.id)
+      .then(({ data }) => {
+        if (!data || data.length === 0) {
+          router.push("/onboarding");
+        }
+      });
     supabase
       .from("customers")
       .select("*")
