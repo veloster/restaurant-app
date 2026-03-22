@@ -15,6 +15,8 @@
     "qrcode.react": "^4.2.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "react-phone-number-input": "^3.4.16",
+    "recharts": "^3.8.0",
     "twilio": "^5.13.0"
   },
   "devDependencies": {
