@@ -148,7 +148,7 @@ export default function AnalyticsPage() {
               <XAxis dataKey="name" tick={{ fontSize: 12 }} />
               <YAxis allowDecimals={false} tick={{ fontSize: 12 }} />
               <Tooltip
-                formatter={(value: number) => [`${value} participation${value > 1 ? "s" : ""}`, ""]}
+                formatter={(value: any) => [`${value} participation${value > 1 ? "s" : ""}`, ""]}
                 labelStyle={{ fontWeight: "bold" }}
               />
               <Bar dataKey="value" fill="#000000" radius={[6, 6, 0, 0]} />
