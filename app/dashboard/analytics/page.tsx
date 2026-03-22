@@ -35,7 +35,6 @@ export default function AnalyticsPage() {
 
   const fetchStats = async () => {
     setLoading(true);
-
     const { data: redemptions } = await supabase
       .from("offer_redemptions")
       .select("*")
@@ -44,21 +43,20 @@ export default function AnalyticsPage() {
     if (!redemptions) { setLoading(false); return; }
 
     setTotalScans(redemptions.length);
-    const uniqueClients = new Set(redemptions.map(r => r.customer_id));
+    const uniqueClients = new Set(redemptions.map((r: any) => r.customer_id));
     setTotalClients(uniqueClients.size);
 
     const now = new Date();
     let grouped: Record<string, number> = {};
 
     if (period === "week") {
-      // 7 derniers jours
       for (let i = 6; i >= 0; i--) {
         const d = new Date(now);
         d.setDate(d.getDate() - i);
         const key = d.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric" });
         grouped[key] = 0;
       }
-      redemptions.forEach(r => {
+      redemptions.forEach((r: any) => {
         const d = new Date(r.created_at);
         const diff = Math.floor((now.getTime() - d.getTime()) / (1000 * 60 * 60 * 24));
         if (diff <= 6) {
@@ -67,10 +65,9 @@ export default function AnalyticsPage() {
         }
       });
     } else if (period === "month") {
-      // 30 derniers jours par semaine
       const labels = ["Sem 4", "Sem 3", "Sem 2", "Sem 1", "Cette sem"];
       labels.forEach(l => grouped[l] = 0);
-      redemptions.forEach(r => {
+      redemptions.forEach((r: any) => {
         const d = new Date(r.created_at);
         const diff = Math.floor((now.getTime() - d.getTime()) / (1000 * 60 * 60 * 24));
         if (diff <= 6) grouped["Cette sem"] = (grouped["Cette sem"] || 0) + 1;
@@ -80,13 +77,12 @@ export default function AnalyticsPage() {
         else if (diff <= 30) grouped["Sem 4"] = (grouped["Sem 4"] || 0) + 1;
       });
     } else {
-      // 6 derniers mois
       for (let i = 5; i >= 0; i--) {
         const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
         const key = d.toLocaleDateString("fr-FR", { month: "short" });
         grouped[key] = 0;
       }
-      redemptions.forEach(r => {
+      redemptions.forEach((r: any) => {
         const d = new Date(r.created_at);
         const diff = (now.getFullYear() - d.getFullYear()) * 12 + (now.getMonth() - d.getMonth());
         if (diff <= 5) {
@@ -103,8 +99,6 @@ export default function AnalyticsPage() {
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Analytics</h1>
-
-      {/* Cartes stats */}
       <div className="grid grid-cols-2 gap-4 mb-8">
         <div className="bg-white rounded-xl shadow p-6">
           <p className="text-gray-400 text-sm mb-1">Total participations</p>
@@ -115,8 +109,6 @@ export default function AnalyticsPage() {
           <p className="text-4xl font-bold">{totalClients}</p>
         </div>
       </div>
-
-      {/* Graphique */}
       <div className="bg-white rounded-xl shadow p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-semibold text-lg">Participations</h2>
@@ -134,7 +126,6 @@ export default function AnalyticsPage() {
             ))}
           </div>
         </div>
-
         {loading ? (
           <div className="h-64 flex items-center justify-center text-gray-400">Chargement...</div>
         ) : data.every(d => d.value === 0) ? (
